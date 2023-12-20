@@ -11,6 +11,7 @@
         integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
     <link href=" https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.css " rel="stylesheet">
     <link rel="stylesheet" href="../style/style.css">
+    <link rel="stylesheet" href="../style/font.css">
 </head>
 
 <body>
@@ -18,7 +19,7 @@
     <div class="custom-container">
         <div class="row-vertical">
             <div class="custom-card">
-                <h3>Mobile Nav Bar</h3>
+                <h3 class="custom-font">Mobile Nav Bar</h3>
                 <style>
                     .nav {
                         width: 100%;
@@ -64,27 +65,29 @@
 
                     .mobileMenu {
                         display: none;
+                        transform: translateX(100%);
                     }
 
 
                     @media (max-width: 991px) {
 
-                    
+
                         .burgerMenu {
                             display: inline-block;
                             position: absolute;
                             right: 0;
-                            bottom: 0px;
+                            bottom: 8px;
                             padding-top: 0.2rem;
                             cursor: pointer;
+                            z-index: 4;
+                            width: 50px;
                             height: 40px;
-                            transform: translate(0, -50%);
+                            /* transform: translate(0, -50%); */
                         }
 
                         .burgerMenu>label {
                             display: inline-block;
-                            width: 50px;
-                            height: 50px;
+                            cursor: pointer;
                             padding: 13px;
                         }
 
@@ -94,15 +97,26 @@
                             height: 5px;
                             border-top: 2px solid #eee;
                         }
+
                         .desktopMenu {
                             display: none !important;
                         }
+
                         .mobileMenu {
                             position: fixed;
                             display: block;
                             top: 0;
                             right: 0;
                             background-color: #1A237E;
+                        }
+
+                        .menuActive {
+                            transform: translateX(0);
+                            margin-top: 0;
+                            position: fixed;
+                            width: 100vw;
+                            z-index: 3;
+                            height: 100vh;
                         }
 
                     }
@@ -120,12 +134,12 @@
                         <li><a href="#">About</a></li>
                         <li><a href="#">Contact</a></li>
                     </ul>
-                    <ul class="nav-list mobileMenu">
+                    <ul class="nav-list mobileMenu " id="mobileMenuId">
                         <li><a href="#">Home</a></li>
                         <li><a href="#">About</a></li>
                         <li><a href="#">Contact</a></li>
                     </ul>
-                    <div class="burgerMenu">
+                    <div class="burgerMenu" id="burgerMenuId">
                         <label for="nav-check">
                             <span></span>
                             <span></span>
@@ -134,9 +148,17 @@
                     </div>
                 </nav>
 
+                <script>
+                    var myDiv = document.getElementById('mobileMenuId');
+                    var myButton = document.getElementById('burgerMenuId');
+
+                    myButton.addEventListener('click', function () {
+                        myDiv.classList.toggle('menuActive');
+                    });
+                </script>
             </div>
             <div class="custom-card">
-                <h3>Popup</h3>
+                <h3 class="custom-font">Popup</h3>
                 <button id="openBtn" onclick="openModal()">Open Popup</button>
 
                 <dialog id="myDialog">
@@ -156,7 +178,7 @@
             </div>
             <div class="custom-card">
 
-                <h3>DropDown</h3>
+                <h3 class="custom-font">DropDown</h3>
                 <style>
                     .dropDownButtonClass {
                         position: relative;
@@ -201,11 +223,11 @@
                 </script>
             </div>
             <div class="custom-card">
-                <h3>customButton (Css)</h3>
+                <h3 class="custom-font">customButton (Css)</h3>
                 <button class="main-theme-button">send</button>
             </div>
             <div class="custom-card">
-                <h3>custom carousel</h3>
+                <h3 class="custom-font">custom carousel</h3>
 
                 <style>
                     .carouselItem {
@@ -308,6 +330,7 @@
             </div>
         </div>
     </div>
+    </main>
 
 
 
