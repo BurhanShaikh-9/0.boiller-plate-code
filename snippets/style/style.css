@@ -1,0 +1,101 @@
+@font-face {
+    font-family: "poppinRegular";
+    src: url("Poppins-Regular.ttf") format("truetype");
+}
+
+:root {
+    --easeInTransition: all .3s ease-in;
+    font-size: 16px;
+}
+
+body {
+    font-family: 'poppinRegular';
+}
+
+.main-theme-button {
+    background-color: aquamarine;
+    border: 1px solid grey;
+    color: green;
+    transition: var(--easeInTransition);
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.main-theme-button:hover {
+    background-color: red;
+    color: black;
+}
+
+.row-horizontal {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.row-vertical {
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.custom-container {
+    width: 100%;
+    padding-right: calc(1.5rem * .5);
+    padding-left: calc(1.5rem * .5);
+    margin-right: auto;
+    margin-left: auto;
+    transition: var(--easeInTransition);
+}
+
+.custom-card {
+    box-shadow: rgba(0, 0, 0, 0.175) 0px 0px 0px 1px;
+    border-radius: 5px;
+    width: 100%;
+}
+
+
+
+
+
+@media only screen and (max-width: 576px) {
+    .custom-container {
+        width: auto;
+    }
+}
+
+@media (min-width: 576px) {
+    .custom-container {
+        max-width: 540px;
+    }
+}
+
+
+@media (min-width: 768px) {
+    .custom-container {
+        max-width: 720px;
+    }
+}
+
+@media (min-width: 991px) {
+    .custom-container {
+        max-width: 960px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .custom-container {
+        max-width: 1140px;
+    }
+}
+
+
+
+
+
+
+@media only screen and (max-width: 1200px) {}
+
+@media only screen and (max-width: 991px) {}
+
+@media only screen and (max-width: 768px) {}

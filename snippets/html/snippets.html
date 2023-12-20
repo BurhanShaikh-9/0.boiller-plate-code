@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"
+        integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <link href=" https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.css " rel="stylesheet">
+    <link rel="stylesheet" href="../style/style.css">
+</head>
+
+<body>
+
+    <div class="custom-container">
+        <div class="row-vertical">
+            <div class="custom-card">
+                <h3>Mobile Nav Bar</h3>
+                <style>
+                    .nav {
+                        width: 100%;
+                        background-color: #1A237E;
+                        display: flex;
+                        align-items: center;
+                        position: relative;
+                        padding: 10px 0;
+                    }
+
+                    .nav>.nav-header {
+                        flex: 0.95;
+                        padding-left: 1rem;
+                    }
+
+                    .nav>.nav-header>.nav-title {
+                        font-size: 22px;
+                        color: #fff;
+                    }
+
+                    .nav>.desktopMenu {
+                        display: flex;
+                        gap: 2rem;
+                    }
+
+                    .desktopMenu {
+                        margin: 0;
+                    }
+
+                    .nav>.nav-list>li {
+                        list-style-type: none;
+                    }
+
+                    .nav>.nav-list>li a {
+                        text-decoration: none;
+                        color: #efefef;
+                        cursor: pointer;
+                    }
+
+                    .nav>#nav-check {
+                        display: none;
+                    }
+
+                    .mobileMenu {
+                        display: none;
+                    }
+
+
+                    @media (max-width: 991px) {
+
+                    
+                        .burgerMenu {
+                            display: inline-block;
+                            position: absolute;
+                            right: 0;
+                            bottom: 0px;
+                            padding-top: 0.2rem;
+                            cursor: pointer;
+                            height: 40px;
+                            transform: translate(0, -50%);
+                        }
+
+                        .burgerMenu>label {
+                            display: inline-block;
+                            width: 50px;
+                            height: 50px;
+                            padding: 13px;
+                        }
+
+                        .burgerMenu>label>span {
+                            display: block;
+                            width: 25px;
+                            height: 5px;
+                            border-top: 2px solid #eee;
+                        }
+                        .desktopMenu {
+                            display: none !important;
+                        }
+                        .mobileMenu {
+                            position: fixed;
+                            display: block;
+                            top: 0;
+                            right: 0;
+                            background-color: #1A237E;
+                        }
+
+                    }
+                </style>
+
+                <nav class="nav">
+                    <input type="checkbox" id="nav-check">
+                    <div class="nav-header">
+                        <div class="nav-title">
+                            Logo
+                        </div>
+                    </div>
+                    <ul class="nav-list desktopMenu">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                    <ul class="nav-list mobileMenu">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                    <div class="burgerMenu">
+                        <label for="nav-check">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </label>
+                    </div>
+                </nav>
+
+            </div>
+            <div class="custom-card">
+                <h3>Popup</h3>
+                <button id="openBtn" onclick="openModal()">Open Popup</button>
+
+                <dialog id="myDialog">
+                    <h2>Popup Title</h2>
+                    <p>This is the content of the popup.</p>
+                    <button id="closeBtn" onclick="closeModal()">Close</button>
+                </dialog>
+                <script>
+                    const myDialog = document.getElementById('myDialog');
+                    const openModal = () => {
+                        myDialog.showModal();
+                    };
+                    const closeModal = () => {
+                        myDialog.close();
+                    };
+                </script>
+            </div>
+            <div class="custom-card">
+
+                <h3>DropDown</h3>
+                <style>
+                    .dropDownButtonClass {
+                        position: relative;
+                    }
+
+                    .dropDownButtonClass:focus+.dropDownMenu {
+                        display: block;
+                    }
+
+                    .dropDownMenu {
+                        display: none;
+                        position: absolute;
+                        background-color: white;
+                        width: 100px;
+                        box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.59);
+                        -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.59);
+                        -moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.59);
+                        padding: 0;
+                        margin: 0;
+                        list-style: none;
+                    }
+
+                    .dropDownMenu li:hover {
+                        background-color: #1A237E;
+                        color: white;
+                        cursor: pointer;
+                    }
+                </style>
+                <button class="dropDownButtonClass">Open dropDown</button>
+                <ul class="dropDownMenu ">
+                    <li>Option</li>
+                    <li>Option</li>
+                    <li>Option</li>
+                    <li>Option</li>
+                </ul>
+
+                <script>
+                    // const openDropDown = () => {
+                    //     var element = document.getElementsByClassName("dropDownMenu")[0];
+                    //     element.classList.toggle("dropDownMenuShow");
+                    // } 
+                </script>
+            </div>
+            <div class="custom-card">
+                <h3>customButton (Css)</h3>
+                <button class="main-theme-button">send</button>
+            </div>
+            <div class="custom-card">
+                <h3>custom carousel</h3>
+
+                <style>
+                    .carouselItem {
+                        background-color: red;
+                        text-align: center;
+                    }
+
+                    .slick-next::before,
+                    .slick-prev::before {
+                        color: red !important;
+                    }
+
+                    .slickArrows {
+                        display: flex;
+                        justify-content: space-between;
+                        padding: 0;
+                        margin: 0;
+                    }
+
+                    .next,
+                    .prev {
+                        display: block;
+                        cursor: pointer;
+                        height: 20px;
+                        width: 20px;
+                        background-size: contain !important;
+                        background-repeat: no-repeat;
+                        background-position: center;
+
+                    }
+
+                    .next {
+                        background: url('https://www.freeiconspng.com/thumbs/arrow-icon/arrow-icon-28.png');
+                    }
+
+                    .prev {
+                        background: url('https://static.thenounproject.com/png/3565454-200.png');
+                    }
+                </style>
+                <div class="carouselWrapper">
+                    <div class="carouselItem">1</div>
+                    <div class="carouselItem">2</div>
+                    <div class="carouselItem">3</div>
+                    <div class="carouselItem">4</div>
+                    <div class="carouselItem">5</div>
+                    <div class="carouselItem">6</div>
+                    <div class="carouselItem">7</div>
+                    <div class="carouselItem">8</div>
+                </div>
+
+                <ul class="slickArrows">
+                    <li class="prev"></li>
+                    <li class="next"></li>
+                </ul>
+
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"
+                    integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg=="
+                    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+                <link rel="stylesheet"
+                    href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"
+                    integrity="sha512-17EgCFERpgZKcm0j0fEq1YCJuyAWdz9KUtv1EjVuaOz8pDnh/0nZxmU6BBXwaaxqoi9PQXnRWqlcDB027hgv9A=="
+                    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+                <script>
+                    $('.carouselWrapper').slick({
+                        dots: true,
+                        infinite: false,
+                        speed: 300,
+                        slidesToShow: 3,
+                        swipeToSlide: true,
+                        prevArrow: $('.prev'),
+                        nextArrow: $('.next'),
+                        responsive: [
+                            {
+                                breakpoint: 1024,
+                                settings: {
+                                    slidesToShow: 1,
+                                    slidesToScroll: 1,
+                                    infinite: true,
+                                    dots: true
+                                }
+                            },
+                            {
+                                breakpoint: 600,
+                                settings: {
+                                    slidesToShow: 1,
+                                    slidesToScroll: 1
+                                }
+                            },
+                            {
+                                breakpoint: 480,
+                                settings: {
+                                    slidesToShow: 1,
+                                    slidesToScroll: 1
+                                }
+                            }
+                        ]
+                    });
+                </script>
+            </div>
+        </div>
+    </div>
+
+
+
+
+</body>
+
+</html>
