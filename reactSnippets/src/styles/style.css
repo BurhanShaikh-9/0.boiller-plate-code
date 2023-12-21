@@ -1,0 +1,125 @@
+/* navbar css starts */
+
+.nav {
+    width: 100%;
+    background-color: #1A237E;
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding: 10px 0;
+}
+
+.nav>.nav-header {
+    flex: 0.95;
+    padding-left: 1rem;
+}
+
+.nav>.nav-header>.nav-title {
+    font-size: 22px;
+    color: #fff;
+}
+
+.nav>.desktopMenu {
+    display: flex;
+    gap: 2rem;
+}
+
+.desktopMenu {
+    margin: 0;
+}
+
+.nav>.nav-list>li {
+    list-style-type: none;
+}
+
+.nav>.nav-list>li a {
+    text-decoration: none;
+    color: #efefef;
+    cursor: pointer;
+}
+
+.nav>#nav-check {
+    display: none;
+}
+
+.mobileMenu {
+    display: none;
+    transform: translateX(100%);
+    width: 300px;
+    height: 100vh;
+    transition: all .3s ease;
+    margin-top: 0;
+    z-index: 3;
+}
+
+.menuActive {
+    transform: translateX(0);
+    transition: all .3s ease;
+    margin-top: 0;
+    position: fixed;
+}
+
+
+.innerMenuMobile {
+    position: relative;
+}
+
+.innerMenuMobile .closeButton {
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    cursor: pointer;
+}
+
+@media (max-width: 991px) {
+
+
+    .burgerMenu {
+        display: inline-block;
+        position: absolute;
+        right: 0;
+        bottom: 8px;
+        padding-top: 0.2rem;
+        cursor: pointer;
+        z-index: 2;
+        width: 50px;
+        height: 40px;
+        /* transform: translate(0, -50%); */
+    }
+
+    .burgerMenu>label {
+        display: inline-block;
+        cursor: pointer;
+        padding: 13px;
+    }
+
+    .burgerMenu>label>span {
+        display: block;
+        width: 25px;
+        height: 5px;
+        border-top: 2px solid #eee;
+    }
+
+    .desktopMenu {
+        display: none !important;
+    }
+
+    .mobileMenu {
+        position: fixed;
+        display: block;
+        top: 0;
+        right: 0;
+        background-color: #1A237E;
+    }
+
+
+
+}
+
+@media (max-width: 576px) {
+    .mobileMenu {
+        width: 100vw;
+    }
+}
+
+/* navbar css ends  */
