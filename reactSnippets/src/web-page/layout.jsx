@@ -3,6 +3,14 @@ import React, { useState } from 'react'
 const Layout = () => {
     const [isNav, setIsNav] = useState(false)
 
+    const [isPopup, setIsPopup] = useState(false)
+
+    const openPopup = () => {
+        setIsPopup(true)
+    }
+    const closePopup = () => {
+        setIsPopup(false)
+    }
 
     return (
         <React.Fragment>
@@ -42,6 +50,20 @@ const Layout = () => {
                                 </label>
                             </div>
                         </nav>
+
+                    </div>
+                    <div class="custom-card">
+                        <h3 class="custom-font">Popup</h3>
+                        <button id="openBtn" onClick={() => openPopup()}>Open Popup</button>
+
+                        {
+                            isPopup &&
+                            <dialog open>
+                                <h2>Popup Title</h2>
+                                <p>This is the content of the popup.</p>
+                                <button id="closeBtn" onClick={() => closePopup()}>Close</button>
+                            </dialog>
+                        }
 
                     </div>
                 </div>
