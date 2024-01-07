@@ -84,9 +84,11 @@
                     .innerMenuMobile {
                         position: relative;
                     }
-                    .innerMenuMobile ul{
+
+                    .innerMenuMobile ul {
                         list-style: none;
                     }
+
                     .innerMenuMobile .closeButton {
                         position: absolute;
                         right: 20px;
@@ -138,9 +140,10 @@
 
 
                     }
+
                     @media (max-width: 576px) {
                         .mobileMenu {
-                           width: 100vw;
+                            width: 100vw;
                         }
                     }
                 </style>
@@ -361,6 +364,116 @@
                                 }
                             }
                         ]
+                    });
+                </script>
+            </div>
+            <div class="custom-card">
+                <h3 class="custom-font">Animation Classes</h3>
+
+
+                <style>
+                    .animationContainer{
+                        display: flex;
+                        justify-content:space-evenly;
+                        /* flex-direction: column; */
+                        /* height: 1600px; */
+                    }
+
+                    .animate_custom {
+                        position: relative;
+                        animation-timing-function: ease-in;
+                    }
+                    .animate_left{
+                        animation-name: animateLeft;
+                    }
+                    @keyframes animateLeft {
+                        0%{
+                            transform: translateX(-120px);
+                            opacity: 0;
+                        }
+                        100%{
+                            opacity: 1;
+                            transform: translateX(0);
+                        }
+                    }
+                    .animate_right{
+                        animation-name: animateRight;
+                    }
+                    @keyframes animateRight {
+                        0%{
+                            transform: translateX(120px);
+                            opacity: 0;
+                        }
+                        100%{
+                            opacity: 1;
+                            transform: translateX(0);
+                        }
+                    }
+                    .animate_bottom{
+                        animation-name: animateBottom;
+                    }
+                    @keyframes animateBottom {
+                        0%{
+                            transform: translateY(120px);
+                            opacity: 0;
+                        }
+                        100%{
+                            opacity: 1;
+                            transform: translateY(0);
+                        }
+                    }
+                    .animate_top{
+                        animation-name: animateTop;
+                    }
+                    @keyframes animateTop {
+                        0%{
+                            transform: translateY(-120px);
+                            opacity: 0;
+                        }
+                        100%{
+                            opacity: 1;
+                            transform: translateY(0);
+                        }
+                    }
+                </style>
+
+                <div class="animationContainer">
+                    <p class="animate_custom" data-animate="animate_left" data-dur-animate="500">Animate me</p>
+                    <p class="animate_custom" data-animate="animate_right" data-dur-animate="500">Animate me</p>
+                    <p class="animate_custom" data-animate="animate_bottom" data-dur-animate="500">Animate me</p>
+                    <p class="animate_custom" data-animate="animate_top" data-dur-animate="500">Animate me</p>
+                </div>
+
+                <script>
+                    document.addEventListener('DOMContentLoaded', function () {
+                        const elementsWithClass = document.getElementsByClassName('animate_custom');
+            
+                        // Function to check if an element is in the viewport
+                        function isInViewport(element) {
+                            const rect = element.getBoundingClientRect();
+                            return (
+                                rect.top >= 0 &&
+                                rect.left >= 0 &&
+                                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                                rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+                            );
+                        }
+
+                        function handleAnimations() {
+                            for (const element of elementsWithClass) {
+                                const animateName = element.getAttribute('data-animate');
+                                const duration = element.getAttribute('data-dur-animate');
+                                if (isInViewport(element)) {
+                                    element.classList.add(animateName);
+                                    element.style.animationDuration = `${duration}ms`;
+                                } else {
+                                    element.classList.remove(animateName);
+                                    element.style.animationDuration = '0s'; 
+                                }
+                            }
+                        }
+                        handleAnimations();
+                        window.addEventListener('scroll', handleAnimations);
                     });
                 </script>
             </div>
