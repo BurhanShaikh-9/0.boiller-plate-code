@@ -71,6 +71,51 @@
     cursor: pointer;
 }
 
+.flexContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Accordian  */
+
+.bas-accordion {
+    overflow: hidden;
+}
+
+.bas-accordion-header {
+    cursor: pointer;
+    padding: 10px;
+    background-color: #f5f5f5;
+    border: 1px solid #ddd;
+    transition: background-color 0.5s;
+}
+
+.bas-accordion-header.active {
+    background-color: #ddd;
+}
+
+.bas-accordion-body {
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    transition: opacity 0.5s;
+    color: black;
+    opacity: 1;
+    /* Initially hidden */
+}
+
+.bas-accordion-body span {
+    display: block;
+}
+
+.bas-accordion-body.active {
+    opacity: 1;
+    /* Visible when active */
+}
+
+
+
 @media (max-width: 991px) {
 
 
